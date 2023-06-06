@@ -10,7 +10,13 @@ const GlobalCss = createGlobalStyle`
         box-sizing: inherit;
     }
 
+    html {
+        font-size: 100%;
+    }
+
     body {
+        font-family: Inter, sans-serif;
+        font-size: 1em;
         margin: unset;
     }
 
