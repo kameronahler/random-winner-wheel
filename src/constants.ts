@@ -1,6 +1,6 @@
 export const STUB = [
   { name: 'Jerry', src: 'https://placehold.co/300x300' },
-  // { name: 'Kameron', src: 'https://placehold.co/300x300' },
+  { name: 'Kameron', src: 'https://placehold.co/300x300' },
   { name: 'Kristina', src: 'https://placehold.co/300x300' },
   { name: 'Miles', src: 'https://placehold.co/300x300' },
   { name: 'Sidd', src: 'https://placehold.co/300x300' },

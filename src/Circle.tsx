@@ -10,7 +10,6 @@ const StyledCircle = styled.div`
   border-radius: 50%;
   height: 100%;
   margin: auto;
-  outline-offset: -0.25rem;
   transition: ${SPIN_DURATION}ms rotate cubic-bezier(0.33, 0, 0, 1);
 `;
 

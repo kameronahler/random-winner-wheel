@@ -1,6 +1,11 @@
 import styled, { css } from 'styled-components';
 
-const StyledRotationWrapper = styled.div<{ $angle: number | undefined }>`
+interface StyledRotationWrapperProps {
+  $angle: number | undefined;
+  $floorsCount: number;
+}
+
+const StyledRotationWrapper = styled.div<StyledRotationWrapperProps>`
   inset: 0;
   position: absolute;
 
@@ -9,6 +14,33 @@ const StyledRotationWrapper = styled.div<{ $angle: number | undefined }>`
     css`
       rotate: ${360 * (1 - $angle)}deg;
     `};
+
+  &::after {
+    background-color: ${(props) => props.theme.mainBgColor};
+    content: '';
+    display: block;
+    height: 50%;
+    left: 50%;
+    position: absolute;
+    width: 3px;
+  }
+
+  ${({ $floorsCount }) =>
+    $floorsCount % 2 === 0
+      ? css`
+          &::after {
+            height: 50%;
+            top: 50%;
+            transform: rotate(${360 / ($floorsCount * 2)}deg);
+            transform-origin: 100% 0;
+          }
+        `
+      : css`
+          &::after {
+            height: 50%;
+            top: 50%;
+          }
+        `}
 `;
 
 const StyledInnerWrapper = styled.div`
@@ -22,7 +54,7 @@ const StyledImg = styled.div`
   background-color: gray;
   border-radius: 50%;
   display: grid;
-  height: 20vmin;
+  height: 15vmin;
   place-content: center;
 `;
 
@@ -33,10 +65,14 @@ const StyledName = styled.p`
 `;
 
 const Person = ({ floors, index, name, src }: PersonProps) => {
-  const angle = floors?.at(-1 * (index + 1));
+  const angle = floors.at(-1 * (index + 1));
 
   return (
-    <StyledRotationWrapper $angle={angle} key={name}>
+    <StyledRotationWrapper
+      $angle={angle}
+      $floorsCount={floors.length}
+      key={name}
+    >
       <StyledInnerWrapper>
         <StyledImg data-src={src} />
         <StyledName>{name}</StyledName>
