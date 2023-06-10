@@ -20,7 +20,7 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
     left: 50%;
     position: absolute;
     translate: -50% 0;
-    width: 0.5vmin;
+    width: ${(props) => props.theme.circleBorderWidth};
   }
 
   ${({ $floorsCount }) =>
@@ -52,7 +52,7 @@ const StyledImg = styled.div`
   border-radius: 50%;
   display: grid;
   height: 15vmin;
-  margin-top: 0.5vmin;
+  margin-top: ${(props) => props.theme.circleBorderWidth};
   place-content: center;
 `;
 
