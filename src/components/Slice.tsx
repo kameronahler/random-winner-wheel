@@ -11,22 +11,40 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
   position: absolute;
   rotate: ${({ $wrapperRotation }) => $wrapperRotation}deg;
 
-  &::after {
+  &::after,
+  &::before {
     background-color: ${(props) => props.theme.circleBorderColor};
     border-radius: 999em;
     content: '';
     display: block;
     height: 50%;
-    left: 50%;
     position: absolute;
-    translate: -50% 0;
     width: ${(props) => props.theme.circleBorderWidth};
+  }
+
+  &::after {
+    left: 50%;
+    translate: -50% 0;
+  }
+
+  &::before {
+    background-image: linear-gradient(
+      ${(props) => props.theme.outerPegColor} 0%,
+      ${(props) => props.theme.outerPegColor} 2.5%,
+      transparent 2.5%,
+      transparent 100%
+    );
+    left: 50%;
+    scale: 1.025;
+    translate: -50% 0;
+    width: ${(props) => props.theme.outerPegWidth};
   }
 
   ${({ $floorsCount }) =>
     $floorsCount % 2 === 0
       ? css`
-          &::after {
+          &::after,
+          &::before {
             rotate: ${-360 / ($floorsCount * 2)}deg;
             top: 0;
             transform-origin: 50% 100%;

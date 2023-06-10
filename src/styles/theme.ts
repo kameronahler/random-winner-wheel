@@ -9,4 +9,6 @@ export const theme: DefaultTheme = {
   mainBgColor: '#212121',
   nameColor: 'rgba(255, 255, 255, .9)',
   outerCircleWidth: '4vmin',
+  outerPegWidth: '1.5vmin',
+  outerPegColor: '#666',
 } as const;
