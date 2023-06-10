@@ -1,11 +1,11 @@
 import styled, { css } from 'styled-components';
 
-interface StyledRotationWrapperProps {
+interface StyledWrapperProps {
   $angle: number | undefined;
   $floorsCount: number;
 }
 
-const StyledRotationWrapper = styled.div<StyledRotationWrapperProps>`
+const StyledWrapper = styled.div<StyledWrapperProps>`
   inset: 0;
   position: absolute;
 
@@ -43,7 +43,7 @@ const StyledRotationWrapper = styled.div<StyledRotationWrapperProps>`
         `}
 `;
 
-const StyledInnerWrapper = styled.div`
+const StyledInner = styled.div`
   left: 50%;
   position: absolute;
   translate: -50% 0;
@@ -68,16 +68,12 @@ const Person = ({ floors, index, name, src }: PersonProps) => {
   const angle = floors.at(-1 * (index + 1));
 
   return (
-    <StyledRotationWrapper
-      $angle={angle}
-      $floorsCount={floors.length}
-      key={name}
-    >
-      <StyledInnerWrapper>
+    <StyledWrapper $angle={angle} $floorsCount={floors.length} key={name}>
+      <StyledInner>
         <StyledImg data-src={src} />
         <StyledName>{name}</StyledName>
-      </StyledInnerWrapper>
-    </StyledRotationWrapper>
+      </StyledInner>
+    </StyledWrapper>
   );
 };
 

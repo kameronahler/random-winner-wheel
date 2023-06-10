@@ -1,4 +1,4 @@
-import { MIN_DEGREES } from './constants';
+import { MIN_DEGREES } from '../constants';
 
 export const getFloors = (persons: Persons) => {
   const floors = [];

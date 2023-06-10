@@ -2,6 +2,7 @@ type IsSpinning = boolean;
 type HandleSpin = React.MouseEventHandler<HTMLButtonElement>;
 type Index = number;
 type Random = number;
+type RandomOrNull = Random | null;
 type Name = string;
 type Src = string;
 type Floor = number;
@@ -19,17 +20,12 @@ interface PersonProps {
   src: Src;
 }
 
-interface ButtonProps {
-  random: Random | null;
-  setRandom: React.Dispatch<React.SetStateAction<number | null>>;
-}
-
-interface CircleProps {
-  persons: Persons;
-  random: Random | null;
+interface Store {
+  random: RandomOrNull;
+  setRandom: React.Dispatch<RandomOrNull>;
 }
 
 interface UseRandomWinner {
   floors: Floors;
-  random: Random | null;
+  random: RandomOrNull;
 }
