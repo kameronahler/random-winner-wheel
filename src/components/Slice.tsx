@@ -59,25 +59,30 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
 `;
 
 const StyledInner = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 3vmin;
   left: 50%;
   position: absolute;
   translate: -50% 0;
 `;
 
-const StyledImg = styled.div`
+const StyledImg = styled.div<{ $src: Src }>`
   aspect-ratio: 1;
-  background-color: gray;
+  background-image: url('${({ $src }) => $src}');
+  background-repeat: no-repeat;
+  background-size: cover;
   border-radius: 50%;
   display: grid;
-  height: 15vmin;
-  margin-top: ${(props) => props.theme.circleBorderWidth};
-  place-content: center;
+  width: 10vmin;
+  margin-block: ${(props) => props.theme.outerCircleWidth};
 `;
 
 const StyledName = styled.p`
   color: ${(props) => props.theme.nameColor};
   font-size: clamp(1rem, 3vmin, 3rem);
-  text-align: center;
+  margin: unset;
+  rotate: 90deg;
 `;
 
 const Slice = ({ floors, index, name, src }: SliceProps) => {
@@ -90,7 +95,7 @@ const Slice = ({ floors, index, name, src }: SliceProps) => {
       $floorsCount={floorsCount}
     >
       <StyledInner>
-        <StyledImg data-src={src} />
+        <StyledImg $src={src} />
         <StyledName>{name}</StyledName>
       </StyledInner>
     </StyledWrapper>
