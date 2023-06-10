@@ -37,7 +37,7 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
     left: 50%;
     scale: 1.025;
     translate: -50% 0;
-    width: ${(props) => props.theme.outerPegWidth};
+    width: ${(props) => props.theme.circleBorderWidth};
   }
 
   ${({ $floorsCount }) =>

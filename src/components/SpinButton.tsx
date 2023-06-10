@@ -4,13 +4,15 @@ import { StoreContext } from '../contexts/Context';
 
 const StyledButton = styled.button`
   aspect-ratio: 1;
-  background-color: ${(props) => props.theme.buttonBgColor};
+  background-color: ${(props) => props.theme.spinButtonBgColor};
+  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
   border-radius: 50%;
-  border: unset;
+  border: ${(props) => `${props.theme.circleBorderWidth} solid
+    ${props.theme.spinButtonBorderColor}`};
   display: block;
   font-size: clamp(1rem, 3vmin, 3rem);
   font-weight: 700;
-  height: 15vmin;
+  height: 14vmin;
   inset: 0;
   letter-spacing: 1px;
   margin: auto;
