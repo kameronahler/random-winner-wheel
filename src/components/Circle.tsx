@@ -9,6 +9,8 @@ import SpinButton from './SpinButton';
 
 const StyledWrapper = styled.section`
   border-radius: 50%;
+  border: ${(props) => props.theme.outerCircleWidth} solid
+    ${(props) => props.theme.circleBorderColor};
   margin-inline: auto;
   position: relative;
   width: 100%;
@@ -19,8 +21,11 @@ const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
   aspect-ratio: 1;
   background-color: ${(props) => props.theme.circleBgColor};
   border-radius: 50%;
-  height: 100%;
   margin: auto;
+  outline: ${(props) => props.theme.circleBorderWidth} solid
+    ${(props) => props.theme.circleBorderColor};
+  outline-offset: calc(-${(props) => props.theme.circleBorderWidth} / 2);
+  width: 100%;
 
   ${({ $angle }) =>
     $angle
@@ -32,10 +37,6 @@ const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
           rotate: 0deg;
           transition: none;
         `}
-
-  outline: ${(props) => props.theme.circleBorderWidth} solid ${(props) =>
-    props.theme.circleBorderColor};
-  outline-offset: -${(props) => props.theme.circleBorderWidth};
 `;
 
 const Circle = () => {

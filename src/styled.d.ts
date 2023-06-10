@@ -1,13 +1,15 @@
 import 'styled-components';
 
 declare module 'styled-components' {
-  export interface DefaultTheme {
-    arrowBgColor: string;
-    buttonBgColor: string;
-    circleBgColor: string;
-    circleBorderColor: string;
-    circleBorderWidth: string;
-    mainBgColor: string;
-    nameColor: string;
-  }
+  export type DefaultTheme = Recrod<
+    | 'arrowBgColor'
+    | 'buttonBgColor'
+    | 'circleBgColor'
+    | 'circleBorderColor'
+    | 'circleBorderWidth'
+    | 'outerCircleWidth'
+    | 'mainBgColor'
+    | 'nameColor',
+    string
+  >;
 }

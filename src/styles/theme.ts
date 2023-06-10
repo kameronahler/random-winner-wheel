@@ -4,8 +4,9 @@ export const theme: DefaultTheme = {
   arrowBgColor: '#666',
   buttonBgColor: '#ccc',
   circleBgColor: '#545454',
-  circleBorderColor: 'rgba(255, 255, 255, .9)',
+  circleBorderColor: '#ccc',
   circleBorderWidth: '0.5vmin',
   mainBgColor: '#212121',
   nameColor: 'rgba(255, 255, 255, .9)',
+  outerCircleWidth: '4vmin',
 } as const;
