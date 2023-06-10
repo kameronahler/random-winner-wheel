@@ -1,44 +1,41 @@
 import styled, { css } from 'styled-components';
 
 interface StyledWrapperProps {
-  $angle: number | undefined;
+  $borderRotation: RandomOrNull;
   $floorsCount: number;
+  $wrapperRotation: RandomOrNull;
 }
 
 const StyledWrapper = styled.div<StyledWrapperProps>`
   inset: 0;
   position: absolute;
-
-  ${({ $angle }) =>
-    $angle &&
-    css`
-      rotate: ${360 * (1 - $angle)}deg;
-    `};
+  rotate: ${({ $wrapperRotation }) => $wrapperRotation}deg;
 
   &::after {
     background-color: ${(props) => props.theme.mainBgColor};
+    border-radius: 999px;
     content: '';
     display: block;
     height: 50%;
     left: 50%;
     position: absolute;
-    width: 3px;
+    translate: -50% 0;
+    width: 4px;
   }
 
   ${({ $floorsCount }) =>
     $floorsCount % 2 === 0
       ? css`
           &::after {
-            height: 50%;
-            top: 50%;
-            transform: rotate(${360 / ($floorsCount * 2)}deg);
-            transform-origin: 100% 0;
+            rotate: ${-360 / ($floorsCount * 2)}deg;
+            top: 0;
+            transform-origin: 50% 100%;
           }
         `
       : css`
           &::after {
-            height: 50%;
             top: 50%;
+            transform-origin: 50% 50%;
           }
         `}
 `;
@@ -65,10 +62,14 @@ const StyledName = styled.p`
 `;
 
 const Slice = ({ floors, index, name, src }: SliceProps) => {
-  const angle = floors.at(-1 * (index + 1));
+  const floorsCount = floors.length;
 
   return (
-    <StyledWrapper $angle={angle} $floorsCount={floors.length} key={name}>
+    <StyledWrapper
+      $borderRotation={((360 / floorsCount) * index) / 2}
+      $wrapperRotation={(360 / floorsCount) * index}
+      $floorsCount={floorsCount}
+    >
       <StyledInner>
         <StyledImg data-src={src} />
         <StyledName>{name}</StyledName>

@@ -5,6 +5,7 @@ import { StoreContext } from '../contexts/Context';
 import { getFloors } from '../helpers';
 import useRandomToAngle from '../hooks/useRandomToAngle';
 import Slice from './Slice';
+import SpinButton from './SpinButton';
 
 const StyledWrapper = styled.section`
   border-radius: 50%;
@@ -51,7 +52,7 @@ const Circle = () => {
           />
         ))}
       </StyledCircle>
-      {/* <SpinButton /> */}
+      <SpinButton />
     </StyledWrapper>
   );
 };

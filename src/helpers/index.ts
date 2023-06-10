@@ -16,5 +16,5 @@ export const getAngle = (floors: Floors, random: Random) => {
   const reducedFloors = floors.reduce((acc: number[], floor) => {
     return random < floor ? [...acc, floor] : acc;
   }, []);
-  return (reducedFloors[0] ?? 1) * 360 + MIN_DEGREES;
+  return Math.round((reducedFloors[0] ?? 1) * 360) + MIN_DEGREES;
 };
