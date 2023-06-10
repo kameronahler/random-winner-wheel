@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import styled, { ThemeProvider } from 'styled-components';
 import App from './components/App';
 import GlobalCss from './styles/GlobalCss';
-import theme from './styles/theme';
+import { theme } from './styles/theme';
 
 // eslint-disable-next-line react-refresh/only-export-components
 const StyledMain = styled.main`
