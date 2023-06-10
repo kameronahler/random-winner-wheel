@@ -51,9 +51,16 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
           }
         `
       : css`
-          &::after {
+          &::after,
+          &::before {
             top: 50%;
             transform-origin: 50% 50%;
+          }
+
+          &::before {
+            rotate: ${-360 / ($floorsCount * 2)}deg;
+            top: 0;
+            transform-origin: 50% 100%;
           }
         `}
 `;

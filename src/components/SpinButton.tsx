@@ -5,10 +5,11 @@ import { StoreContext } from '../contexts/Context';
 const StyledButton = styled.button`
   aspect-ratio: 1;
   background-color: ${(props) => props.theme.spinButtonBgColor};
-  box-shadow: 0 0 20px -10px rgba(0, 0, 0, 1);
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 50%;
   border: ${(props) => `${props.theme.circleBorderWidth} solid
     ${props.theme.spinButtonBorderColor}`};
+  cursor: pointer;
   display: block;
   font-size: clamp(1rem, 3vmin, 3rem);
   font-weight: 700;
@@ -19,6 +20,11 @@ const StyledButton = styled.button`
   padding: unset;
   position: absolute;
   text-transform: uppercase;
+
+  &:active {
+    scale: 0.9;
+    transition: scale 0.2s ease;
+  }
 `;
 const SpinButton = () => {
   const { random, setRandom } = useContext(StoreContext);

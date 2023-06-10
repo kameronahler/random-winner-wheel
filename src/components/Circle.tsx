@@ -21,6 +21,7 @@ const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
   aspect-ratio: 1;
   background-color: ${(props) => props.theme.circleBgColor};
   border-radius: 50%;
+  box-shadow: inset ${(props) => props.theme.boxShadow};
   margin: auto;
   outline: ${(props) => props.theme.circleBorderWidth} solid
     ${(props) => props.theme.circleBorderColor};
