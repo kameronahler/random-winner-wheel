@@ -12,15 +12,15 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
   rotate: ${({ $wrapperRotation }) => $wrapperRotation}deg;
 
   &::after {
-    background-color: ${(props) => props.theme.mainBgColor};
-    border-radius: 999px;
+    background-color: ${(props) => props.theme.circleBorderColor};
+    border-radius: 999em;
     content: '';
     display: block;
     height: 50%;
     left: 50%;
     position: absolute;
     translate: -50% 0;
-    width: 4px;
+    width: 0.5vmin;
   }
 
   ${({ $floorsCount }) =>
@@ -52,6 +52,7 @@ const StyledImg = styled.div`
   border-radius: 50%;
   display: grid;
   height: 15vmin;
+  margin-top: 0.5vmin;
   place-content: center;
 `;
 

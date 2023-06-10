@@ -32,6 +32,9 @@ const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
           rotate: 0deg;
           transition: none;
         `}
+
+  outline: .5vmin solid ${(props) => props.theme.circleBorderColor};
+  outline-offset: -0.5vmin;
 `;
 
 const Circle = () => {

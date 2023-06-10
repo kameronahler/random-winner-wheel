@@ -20,6 +20,10 @@ interface SliceProps {
   src: Src;
 }
 
+interface ArrowProps {
+  random: RandomOrNull;
+}
+
 interface UseRandomToAngle {
   floors: Floors;
   random: RandomOrNull;
