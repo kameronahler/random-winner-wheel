@@ -13,19 +13,19 @@ type Person = {
 };
 type Persons = Person[];
 
-interface PersonProps {
+interface SliceProps {
   floors: Floors;
   index: Index;
   name: Name;
   src: Src;
 }
 
-interface Store {
-  random: RandomOrNull;
-  setRandom: React.Dispatch<RandomOrNull>;
-}
-
 interface UseRandomToAngle {
   floors: Floors;
   random: RandomOrNull;
+}
+
+interface Store {
+  random: RandomOrNull;
+  setRandom: React.Dispatch<RandomOrNull>;
 }

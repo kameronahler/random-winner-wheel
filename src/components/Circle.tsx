@@ -4,8 +4,7 @@ import { SPIN_DURATION, STUB } from '../constants';
 import { StoreContext } from '../contexts/Context';
 import { getFloors } from '../helpers';
 import useRandomToAngle from '../hooks/useRandomToAngle';
-import Person from './Person';
-import SpinButton from './SpinButton';
+import Slice from './Slice';
 
 const StyledWrapper = styled.section`
   border-radius: 50%;
@@ -43,7 +42,7 @@ const Circle = () => {
     <StyledWrapper>
       <StyledCircle $angle={angle}>
         {STUB.map(({ name, src }, index) => (
-          <Person
+          <Slice
             floors={floors}
             src={src}
             index={index}
@@ -52,7 +51,7 @@ const Circle = () => {
           />
         ))}
       </StyledCircle>
-      <SpinButton />
+      {/* <SpinButton /> */}
     </StyledWrapper>
   );
 };

@@ -64,7 +64,7 @@ const StyledName = styled.p`
   text-align: center;
 `;
 
-const Person = ({ floors, index, name, src }: PersonProps) => {
+const Slice = ({ floors, index, name, src }: SliceProps) => {
   const angle = floors.at(-1 * (index + 1));
 
   return (
@@ -77,4 +77,4 @@ const Person = ({ floors, index, name, src }: PersonProps) => {
   );
 };
 
-export default Person;
+export default Slice;
