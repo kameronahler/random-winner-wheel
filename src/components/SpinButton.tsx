@@ -29,11 +29,9 @@ const SpinButton = () => {
     setRandom(null);
   };
 
-  return random ? (
-    <StyledButton onClick={handleReset}>Reset</StyledButton>
-  ) : (
-    <StyledButton disabled={!!random} onClick={handleSpin}>
-      Spin
+  return (
+    <StyledButton onClick={random ? handleReset : handleSpin}>
+      {random ? 'Reset' : 'Spin'}
     </StyledButton>
   );
 };

@@ -25,7 +25,7 @@ interface Store {
   setRandom: React.Dispatch<RandomOrNull>;
 }
 
-interface UseRandomWinner {
+interface UseRandomToAngle {
   floors: Floors;
   random: RandomOrNull;
 }

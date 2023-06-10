@@ -9,6 +9,8 @@ import theme from './styles/theme';
 const StyledMain = styled.main`
   background-color: ${(props) => props.theme.mainBgColor};
   height: 100%;
+  max-height: 100vh;
+  overflow: hidden;
   padding-inline: 1rem;
 `;
 

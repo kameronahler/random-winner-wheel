@@ -9,4 +9,4 @@ export const STUB = [
 
 export const SPIN_DURATION = 10000;
 
-export const MIN_DEGREES = 12 * 360;
+export const MIN_DEGREES = 10 * 360;
