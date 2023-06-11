@@ -14,7 +14,7 @@ const Container = () => {
   const { index, isDoneSpinning } = useContext(StoreContext);
   const { name, src } = index ? STUB[index] : INITIAL_DATA;
 
-  return isDoneSpinning ? (
+  return index && isDoneSpinning ? (
     <WinnerModal name={name} src={src} />
   ) : (
     <>
