@@ -11,7 +11,6 @@ const StyledMain = styled.main`
   height: 100%;
   max-height: 100vh;
   overflow: hidden;
-  padding-inline: 1rem;
 `;
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(

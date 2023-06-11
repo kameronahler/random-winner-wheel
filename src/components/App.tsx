@@ -1,12 +1,10 @@
 import StoreProvider from '../contexts/Store';
-import Arrow from './Arrow';
-import Circle from './Circle';
+import Container from './Container';
 
 const App = () => {
   return (
     <StoreProvider>
-      <Arrow />
-      <Circle />
+      <Container />
     </StoreProvider>
   );
 };

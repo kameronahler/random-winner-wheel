@@ -26,7 +26,8 @@ const StyledButton = styled.button`
     transition: scale 0.2s ease;
   }
 `;
-const SpinButton = () => {
+
+const SpinButton = ({ text, ...rest }: SpinButtonProps) => {
   const { random, setRandom } = useContext(StoreContext);
 
   const handleSpin = () => {
@@ -38,8 +39,11 @@ const SpinButton = () => {
   };
 
   return (
-    <StyledButton onClick={random ? handleReset : handleSpin}>
-      {random ? 'Reset' : 'Spin'}
+    <StyledButton
+      className={rest.className}
+      onClick={random ? handleReset : handleSpin}
+    >
+      {text}
     </StyledButton>
   );
 };

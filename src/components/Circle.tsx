@@ -39,7 +39,7 @@ const StyledCircle = styled.div<{ $degrees: RandomOrNull }>`
 `;
 
 const Circle = () => {
-  const { degrees, floors } = useContext(StoreContext);
+  const { degrees, floors, random } = useContext(StoreContext);
 
   return (
     <StyledWrapper>
@@ -54,7 +54,7 @@ const Circle = () => {
           />
         ))}
       </StyledCircle>
-      <SpinButton />
+      <SpinButton text={random ? 'Stop' : 'Spin'} />
     </StyledWrapper>
   );
 };

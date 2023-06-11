@@ -7,7 +7,6 @@ export const theme: DefaultTheme = {
   circleBorderColor: '#ccc',
   circleBorderWidth: '1vmin',
   mainBgColor: '#212121',
-  nameColor: 'rgba(255, 255, 255, .9)',
   outerCircleWidth: '3vmin',
   outerPegColor: '#666',
   sliceBgColorEven: 'red',
@@ -15,4 +14,5 @@ export const theme: DefaultTheme = {
   spinButtonBgColor: '#ccc',
   spinButtonBorderColor: '#444',
   spinButtonBorderWidth: '1vmin',
+  textColor: 'rgba(255, 255, 255, .9)',
 } as const;

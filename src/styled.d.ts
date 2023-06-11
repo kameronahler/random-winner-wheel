@@ -8,13 +8,13 @@ declare module 'styled-components' {
     | 'circleBorderColor'
     | 'circleBorderWidth'
     | 'mainBgColor'
-    | 'nameColor'
     | 'outerCircleWidth'
     | 'outerPegColor'
     | 'sliceBgColorEven'
     | 'sliceBgColorOdd'
     | 'spinButtonBorderWidth'
-    | 'spinButtonBorderColor',
+    | 'spinButtonBorderColor'
+    | 'textColor',
     string
   >;
 }

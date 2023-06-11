@@ -74,7 +74,7 @@ const StyledInner = styled.div`
   translate: -50% 0;
 `;
 
-const StyledImg = styled.div<{ $src: Src }>`
+export const StyledImg = styled.div<{ $src: Src }>`
   aspect-ratio: 1;
   background-image: url('${({ $src }) => $src}');
   background-repeat: no-repeat;
@@ -85,8 +85,8 @@ const StyledImg = styled.div<{ $src: Src }>`
   margin-block: ${(props) => props.theme.outerCircleWidth};
 `;
 
-const StyledName = styled.p`
-  color: ${(props) => props.theme.nameColor};
+export const StyledName = styled.p`
+  color: ${(props) => props.theme.textColor};
   font-size: clamp(1rem, 3vmin, 3rem);
   margin: unset;
   rotate: 90deg;

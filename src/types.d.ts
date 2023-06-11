@@ -3,10 +3,10 @@ type DegreesOrNull = Degrees | null;
 type Floor = number;
 type Floors = Floor[];
 type HandleSpin = React.MouseEventHandler<HTMLButtonElement>;
+type HasSpun = boolean;
 type Index = number;
 type IndexOrNull = Index | null;
-type IsSpinning = boolean;
-type IsSpinningOrNull = IsSpinning | null;
+type IsDoneSpinning = boolean;
 type Name = string;
 type Person = {
   name: Name;
@@ -28,13 +28,22 @@ interface Store {
   degrees: DegreesOrNull;
   floors: Floors;
   index: IndexOrNull;
-  isSpinning: IsSpinningOrNull;
+  hasSpun: HasSpun;
+  isDoneSpinning: IsDoneSpinning;
   random: RandomOrNull;
   setRandom: React.Dispatch<RandomOrNull>;
   setIndex: React.Dispatch<IndexOrNull>;
-  setIsSpinning: React.Dispatch<IsSpinningOrNull>;
+}
+
+interface ContainerProps {
+  children: React.ReactNode;
 }
 
 interface StoreProvider {
   children: React.ReactNode;
+}
+
+interface SpinButtonProps
+  extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  text: string;
 }

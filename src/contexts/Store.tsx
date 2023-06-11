@@ -5,11 +5,11 @@ import { generateFloors, getWinningDegrees, getWinningIndex } from '../helpers';
 export const StoreContext = React.createContext<Store>({
   degrees: null,
   floors: [],
-  isSpinning: null,
+  hasSpun: false,
+  isDoneSpinning: false,
   random: null,
   setRandom: () => null,
   setIndex: () => null,
-  setIsSpinning: () => null,
   index: null,
 });
 
@@ -18,12 +18,13 @@ const StoreProvider = ({ children }: StoreProvider) => {
   const [random, setRandom] = useState<RandomOrNull>(null);
   const [index, setIndex] = useState<IndexOrNull>(null);
   const [degrees, setDegrees] = useState<RandomOrNull>(null);
-  const [isSpinning, setIsSpinning] = useState<IsSpinningOrNull>(null);
+  const [hasSpun, setHasSpun] = useState<HasSpun>(false);
+  const [isDoneSpinning, setIsDoneSpinning] = useState<IsDoneSpinning>(false);
 
-  useEffect(
-    () => setIndex(random ? getWinningIndex(floors, random) : null),
-    [floors, random]
-  );
+  useEffect(() => {
+    setHasSpun(random ? true : false);
+    setIndex(random ? getWinningIndex(floors, random) : null);
+  }, [floors, random]);
 
   useEffect(
     () => setDegrees(index ? getWinningDegrees(floors.length, index) : null),
@@ -31,21 +32,26 @@ const StoreProvider = ({ children }: StoreProvider) => {
   );
 
   useEffect(() => {
-    const timeout = setTimeout(() => setIsSpinning(false), SPIN_DURATION);
+    const timeout = setTimeout(() => {
+      if (hasSpun && degrees) setIsDoneSpinning(true);
+    }, SPIN_DURATION + 1000);
+
+    setIsDoneSpinning(false);
+
     return () => clearTimeout(timeout);
-  }, [degrees]);
+  }, [degrees, hasSpun]);
 
   return (
     <StoreContext.Provider
       value={{
         degrees,
         floors,
+        hasSpun,
         index,
-        isSpinning,
+        isDoneSpinning,
         random,
         setRandom,
         setIndex,
-        setIsSpinning,
       }}
     >
       {children}
