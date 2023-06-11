@@ -1,3 +1,4 @@
+import Confetti from 'react-confetti';
 import styled from 'styled-components';
 import { StyledImg, StyledName } from './Slice';
 import SpinButton from './SpinButton';
@@ -48,6 +49,7 @@ const WinnerModal = ({ name, src }: Person) => {
         <StyledWinningName aria-hidden>{name}</StyledWinningName>
         <StyledWinningButton text="Reset" />
       </StyledInner>
+      <Confetti height={window.innerHeight} width={window.innerWidth} />
     </StyledBackdrop>
   );
 };
