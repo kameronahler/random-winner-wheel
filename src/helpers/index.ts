@@ -1,20 +1,15 @@
-import { MIN_DEGREES } from '../constants';
+import { MANDATORY_SPINNING_DEGREES } from '../constants';
 
-export const getFloors = (persons: Persons) => {
+export const generateFloors = (persons: Persons): Floors => {
   const floors = [];
-  for (const [index, _] of persons.entries()) {
-    const num = new Intl.NumberFormat('en-US', {
-      minimumFractionDigits: 2,
-      maximumFractionDigits: 2,
-    });
-    floors.push(+num.format((index + 1) / persons.length));
+  for (const [index] of persons.entries()) {
+    floors.push(index / persons.length);
   }
   return floors;
 };
 
-export const getAngle = (floors: Floors, random: Random) => {
-  const reducedFloors = floors.reduce((acc: number[], floor) => {
-    return random < floor ? [...acc, floor] : acc;
-  }, []);
-  return Math.round((reducedFloors[0] ?? 1) * 360) + MIN_DEGREES;
-};
+export const getWinningIndex = (floors: Floors, random: Random) =>
+  floors.findIndex((floor) => random <= floor);
+
+export const getWinningDegrees = (floorsLength: number, winningIndex: Index) =>
+  (winningIndex / floorsLength) * -360 + MANDATORY_SPINNING_DEGREES;

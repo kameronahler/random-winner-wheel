@@ -2,7 +2,6 @@ import { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { SPIN_DURATION, STUB } from '../constants';
 import { StoreContext } from '../contexts/Store';
-import useRandomToAngle from '../hooks/useRandomToAngle';
 import Slice from './Slice';
 import SpinButton from './SpinButton';
 
@@ -16,7 +15,7 @@ const StyledWrapper = styled.section`
   max-width: 90vmin;
 `;
 
-const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
+const StyledCircle = styled.div<{ $degrees: RandomOrNull }>`
   aspect-ratio: 1;
   background-color: ${(props) => props.theme.circleBgColor};
   border-radius: 50%;
@@ -27,10 +26,10 @@ const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
   outline-offset: calc(-${(props) => props.theme.circleBorderWidth} / 2);
   width: 100%;
 
-  ${({ $angle }) =>
-    $angle
+  ${({ $degrees }) =>
+    $degrees
       ? css`
-          rotate: ${$angle}deg;
+          rotate: ${$degrees}deg;
           transition: ${SPIN_DURATION}ms rotate cubic-bezier(0.33, 0, 0, 1);
         `
       : css`
@@ -40,19 +39,18 @@ const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
 `;
 
 const Circle = () => {
-  const { floors } = useContext(StoreContext);
-  const { angle } = useRandomToAngle();
+  const { degrees, floors } = useContext(StoreContext);
 
   return (
     <StyledWrapper>
-      <StyledCircle $angle={angle}>
+      <StyledCircle $degrees={degrees}>
         {STUB.map(({ name, src }, index) => (
           <Slice
-            floors={floors}
-            src={src}
+            floorsCount={floors.length}
             index={index}
-            name={name}
             key={name + index}
+            name={name}
+            src={src}
           />
         ))}
       </StyledCircle>

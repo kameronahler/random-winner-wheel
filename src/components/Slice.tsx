@@ -92,9 +92,7 @@ const StyledName = styled.p`
   rotate: 90deg;
 `;
 
-const Slice = ({ floors, index, name, src }: SliceProps) => {
-  const floorsCount = floors.length;
-
+const Slice = ({ floorsCount, index, name, src }: SliceProps) => {
   return (
     <StyledWrapper
       $borderRotation={((360 / floorsCount) * index) / 2}

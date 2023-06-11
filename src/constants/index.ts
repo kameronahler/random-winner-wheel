@@ -27,6 +27,6 @@ export const STUB = [
 
 export const SPIN_DURATION = 10000;
 
-export const MIN_SPINS = 10;
+export const MANDATORY_SPINS = 10;
 
-export const MIN_DEGREES = MIN_SPINS * 360;
+export const MANDATORY_SPINNING_DEGREES = MANDATORY_SPINS * -360;
