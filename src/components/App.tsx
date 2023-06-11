@@ -1,4 +1,4 @@
-import StoreProvider from '../contexts/Context';
+import StoreProvider from '../contexts/Store';
 import Arrow from './Arrow';
 import Circle from './Circle';
 

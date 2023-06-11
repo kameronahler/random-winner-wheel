@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { StoreContext } from '../contexts/Context';
+import { StoreContext } from '../contexts/Store';
 
 const StyledButton = styled.button`
   aspect-ratio: 1;

@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { MIN_SPINS } from '../constants';
-import { StoreContext } from '../contexts/Context';
+import { StoreContext } from '../contexts/Store';
 
 const BobAnimation = keyframes`
     100% {

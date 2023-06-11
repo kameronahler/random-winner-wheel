@@ -1,7 +1,9 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { StoreContext } from '../contexts/Store';
 import { getAngle } from '../helpers';
 
-const useRandomToAngle = ({ floors, random }: UseRandomToAngle) => {
+const useRandomToAngle = () => {
+  const { floors, random } = useContext(StoreContext);
   const [angle, setAngle] = useState<RandomOrNull>(null);
 
   useEffect(() => {

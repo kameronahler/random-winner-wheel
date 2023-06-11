@@ -1,8 +1,7 @@
 import { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { SPIN_DURATION, STUB } from '../constants';
-import { StoreContext } from '../contexts/Context';
-import { getFloors } from '../helpers';
+import { StoreContext } from '../contexts/Store';
 import useRandomToAngle from '../hooks/useRandomToAngle';
 import Slice from './Slice';
 import SpinButton from './SpinButton';
@@ -41,9 +40,8 @@ const StyledCircle = styled.div<{ $angle: RandomOrNull }>`
 `;
 
 const Circle = () => {
-  const floors = getFloors(STUB);
-  const { random } = useContext(StoreContext);
-  const { angle } = useRandomToAngle({ floors, random });
+  const { floors } = useContext(StoreContext);
+  const { angle } = useRandomToAngle();
 
   return (
     <StyledWrapper>
