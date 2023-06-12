@@ -49,7 +49,12 @@ const WinnerModal = ({ name, src }: Person) => {
         <StyledWinningName aria-hidden>{name}</StyledWinningName>
         <StyledWinningButton text="Reset" />
       </StyledInner>
-      <Confetti height={window.innerHeight} width={window.innerWidth} />
+      <Confetti
+        gravity={0.025}
+        height={window.innerHeight}
+        numberOfPieces={100}
+        width={window.innerWidth}
+      />
     </StyledBackdrop>
   );
 };
