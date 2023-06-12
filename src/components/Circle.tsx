@@ -25,6 +25,7 @@ const StyledCircle = styled.div<{ $degrees: RandomOrNull }>`
     ${(props) => props.theme.circleBorderColor};
   outline-offset: calc(-${(props) => props.theme.circleBorderWidth} / 2);
   width: 100%;
+  will-change: rotate;
 
   ${({ $degrees }) =>
     $degrees

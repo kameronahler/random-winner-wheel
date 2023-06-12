@@ -12,32 +12,35 @@ const StyledBackdrop = styled.section`
 `;
 
 const StyledInner = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
   gap: 1rem;
   height: 100%;
   width: 100%;
 `;
 
 const StyledH1 = styled.h1`
-  font-size: clamp(2rem, 4vmin, 4rem);
   color: ${(props) => props.theme.textColor};
+  font-size: clamp(2rem, 4vmin, 4rem);
   text-align: center;
 `;
 
-const StyledWinningImg = styled(StyledImg)`
+const RestyledWinningImg = styled(StyledImg)`
   position: static;
   margin: unset;
 `;
-const StyledWinningName = styled(StyledName)`
+const RestyledWinningName = styled(StyledName)`
   color: ${(props) => props.theme.textColor};
-  rotate: unset;
   margin-bottom: 3rem;
+  rotate: unset;
 `;
 
-const StyledWinningButton = styled(SpinButton)`
+const RestyledWinningButton = styled(SpinButton)`
+  left: unset;
   position: static;
+  top: unset;
+  translate: unset;
 `;
 
 const WinnerModal = ({ name, src }: Person) => {
@@ -45,9 +48,9 @@ const WinnerModal = ({ name, src }: Person) => {
     <StyledBackdrop aria-label={`The winner is ${name}`}>
       <StyledInner>
         <StyledH1 aria-hidden>Winner, winner, chicken dinner</StyledH1>
-        <StyledWinningImg aria-hidden $src={src} />
-        <StyledWinningName aria-hidden>{name}</StyledWinningName>
-        <StyledWinningButton text="Reset" />
+        <RestyledWinningImg aria-hidden $src={src} />
+        <RestyledWinningName aria-hidden>{name}</RestyledWinningName>
+        <RestyledWinningButton text="Reset" />
       </StyledInner>
       <Confetti
         gravity={0.025}

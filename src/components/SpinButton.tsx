@@ -13,13 +13,13 @@ const StyledButton = styled.button`
   display: block;
   font-size: clamp(1rem, 3vmin, 3rem);
   font-weight: 700;
-  height: 14vmin;
-  inset: 0;
+  left: 50%;
   letter-spacing: 1px;
-  margin: auto;
-  padding: unset;
+  padding: 3vmin;
   position: absolute;
   text-transform: uppercase;
+  top: 50%;
+  translate: -50% -50%;
 
   &:active {
     scale: 0.9;
