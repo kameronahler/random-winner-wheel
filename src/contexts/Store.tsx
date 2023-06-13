@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { SPIN_DURATION, STUB } from '../constants';
+import { DELAY_WINNER_MODAL, SPIN_DURATION, STUB } from '../constants';
 import { generateFloors, getWinningDegrees, getWinningIndex } from '../helpers';
 
 export const StoreContext = React.createContext<Store>({
@@ -37,7 +37,7 @@ const StoreProvider = ({ children }: StoreProvider) => {
   useEffect(() => {
     const timeout = setTimeout(() => {
       if (hasSpun && degrees) setIsDoneSpinning(true);
-    }, SPIN_DURATION + 1000);
+    }, SPIN_DURATION + DELAY_WINNER_MODAL);
 
     setIsDoneSpinning(false);
 

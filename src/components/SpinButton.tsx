@@ -15,7 +15,7 @@ const StyledButton = styled.button`
   font-weight: 700;
   left: 50%;
   letter-spacing: 1px;
-  padding: 3vmin;
+  padding: 1rem;
   position: absolute;
   text-transform: uppercase;
   top: 50%;

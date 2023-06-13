@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { MANDATORY_SPINS } from '../constants';
+import { MANDATORY_SPINS, SPIN_DURATION } from '../constants';
 import { StoreContext } from '../contexts/Store';
 
 const BobAnimation = keyframes`
@@ -21,7 +21,7 @@ const StyledArrow = styled.div<StyledArrowProps>`
   margin-bottom: 2rem;
   margin-inline: auto;
   width: 0;
-  animation: ${BobAnimation} 0.25s linear forwards alternate;
+  animation: ${BobAnimation} ${SPIN_DURATION / 40}ms linear forwards alternate;
   animation-iteration-count: ${MANDATORY_SPINS * 4 + 1};
   animation-play-state: ${({ $isAnimating }) =>
     $isAnimating ? 'running' : 'paused'};
