@@ -23,11 +23,14 @@ const StoreProvider = ({ children }: StoreProvider) => {
 
   useEffect(() => {
     setHasSpun(random ? true : false);
-    setIndex(random ? getWinningIndex(floors, random) : null);
+    setIndex(random !== null ? getWinningIndex(floors, random) : null);
   }, [floors, random]);
 
   useEffect(
-    () => setDegrees(index ? getWinningDegrees(floors.length, index) : null),
+    () =>
+      setDegrees(
+        index !== null ? getWinningDegrees(floors.length, index) : null
+      ),
     [floors, index]
   );
 
