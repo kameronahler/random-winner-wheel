@@ -66,9 +66,10 @@ const StyledWrapper = styled.div<StyledWrapperProps>`
 `;
 
 const StyledInner = styled.div`
+  align-items: center;
   display: flex;
   flex-direction: column;
-  gap: 3vmin;
+  gap: 2vmin;
   left: 50%;
   position: absolute;
   translate: -50% 0;
@@ -81,15 +82,21 @@ export const StyledImg = styled.div<{ $src: Src }>`
   background-size: cover;
   border-radius: 50%;
   display: grid;
+  margin-top: ${(props) => props.theme.outerCircleWidth};
   width: 10vmin;
-  margin-block: ${(props) => props.theme.outerCircleWidth};
 `;
 
 export const StyledName = styled.p`
   color: ${(props) => props.theme.textColor};
-  font-size: clamp(1rem, 3vmin, 3rem);
+  font-size: clamp(0.75rem, 2vmin, 3rem);
+  font-weight: 650;
   margin: unset;
-  rotate: 90deg;
+  max-height: 20vmin;
+  overflow: hidden;
+  text-orientation: mixed;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  writing-mode: vertical-lr;
 `;
 
 const Slice = ({ floorsCount, index, name, src }: SliceProps) => {

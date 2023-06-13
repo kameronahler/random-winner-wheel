@@ -30,14 +30,20 @@ const StyledH1 = styled.h1`
 
 const RestyledWinningImg = styled(StyledImg)`
   position: static;
-  margin: 0 0 1%.5;
+  margin: 0 0 1.5rem;
   width: 8rem;
 `;
 
 const RestyledWinningName = styled(StyledName)`
   color: ${(props) => props.theme.textColor};
-  text-align: center;
+  max-height: unset;
+  overflow: unset;
   rotate: unset;
+  text-align: center;
+  text-orientation: unset;
+  text-overflow: unset;
+  white-space: unset;
+  writing-mode: unset;
 `;
 
 const RestyledWinningButton = styled(SpinButton)`
