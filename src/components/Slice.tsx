@@ -80,6 +80,7 @@ export const StyledImg = styled.div<{ $src: Src }>`
   background-image: url('${({ $src }) => $src}');
   background-repeat: no-repeat;
   background-size: cover;
+  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 50%;
   display: grid;
   margin-top: ${(props) => props.theme.outerCircleWidth};

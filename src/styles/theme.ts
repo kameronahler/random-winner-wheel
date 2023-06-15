@@ -14,7 +14,8 @@ export const theme: DefaultTheme = {
   outerPegColor: '#C9ADA7',
   spinButtonBgColor: '#C9ADA7',
   spinButtonBorderColor: '#F2E9E4',
-  spinButtonTextColor: '#4A4E69',
+  spinButtonTextColor: '#2D2D4E',
   spinButtonBorderWidth: '1vmin',
-  winnerModalTextColor: '#C9ADA7',
+  winnerModalH1TextColor: '#C9ADA7',
+  winnerModalTextColor: '#F2E9E4',
 } as const;

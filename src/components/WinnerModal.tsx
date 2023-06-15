@@ -23,7 +23,7 @@ const StyledInner = styled.div`
 `;
 
 const StyledH1 = styled.h1`
-  color: ${(props) => props.theme.winnerModalTextColor};
+  color: ${(props) => props.theme.winnerModalH1TextColor};
   font-size: clamp(3rem, 5vmin, 4rem);
   margin: unset;
   text-align: center;
@@ -37,6 +37,7 @@ const RestyledWinningImg = styled(StyledImg)`
 
 const RestyledWinningName = styled(StyledName)`
   color: ${(props) => props.theme.winnerModalTextColor};
+  font-size: clamp(2rem, 4vmin, 3rem);
   max-height: unset;
   overflow: unset;
   rotate: unset;
