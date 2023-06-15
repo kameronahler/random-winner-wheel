@@ -1,27 +1,34 @@
+import jerry from '../../public/j.jpeg';
+import kristina from '../../public/k.jpeg';
+import miles from '../../public/m.jpeg';
+import nikki from '../../public/n.jpeg';
+import sidd from '../../public/s.jpeg';
+import tj from '../../public/t.jpeg';
+
 export const STUB = [
   {
     name: 'Jerry',
-    src: 'https://images.unsplash.com/photo-1686174099917-325c70c29206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
-  },
-  {
-    name: 'Kameron',
-    src: 'https://images.unsplash.com/photo-1686174099917-325c70c29206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+    src: jerry,
   },
   {
     name: 'Kristina',
-    src: 'https://images.unsplash.com/photo-1686174099917-325c70c29206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+    src: kristina,
   },
   {
     name: 'Miles',
-    src: 'https://images.unsplash.com/photo-1686174099917-325c70c29206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+    src: miles,
+  },
+  {
+    name: 'Nikki',
+    src: nikki,
   },
   {
     name: 'Sidd',
-    src: 'https://images.unsplash.com/photo-1686174099917-325c70c29206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+    src: sidd,
   },
   {
     name: 'TJ',
-    src: 'https://images.unsplash.com/photo-1686174099917-325c70c29206?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=987&q=80',
+    src: tj,
   },
 ];
 
