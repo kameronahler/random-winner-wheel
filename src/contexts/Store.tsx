@@ -1,3 +1,4 @@
+import { useReducedMotion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 import { DELAY_WINNER_MODAL, SPIN_DURATION, STUB } from '../constants';
 import { generateFloors, getWinningDegrees, getWinningIndex } from '../helpers';
@@ -20,6 +21,7 @@ const StoreProvider = ({ children }: StoreProvider) => {
   const [degrees, setDegrees] = useState<RandomOrNull>(null);
   const [hasSpun, setHasSpun] = useState<HasSpun>(false);
   const [isDoneSpinning, setIsDoneSpinning] = useState<IsDoneSpinning>(false);
+  const isPrefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
     setHasSpun(random ? true : false);
@@ -35,14 +37,19 @@ const StoreProvider = ({ children }: StoreProvider) => {
   );
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      if (hasSpun && degrees) setIsDoneSpinning(true);
-    }, SPIN_DURATION + DELAY_WINNER_MODAL);
+    const timeout = setTimeout(
+      () => {
+        if (hasSpun && degrees) setIsDoneSpinning(true);
+      },
+      isPrefersReducedMotion
+        ? DELAY_WINNER_MODAL
+        : SPIN_DURATION + DELAY_WINNER_MODAL
+    );
 
     setIsDoneSpinning(false);
 
     return () => clearTimeout(timeout);
-  }, [degrees, hasSpun]);
+  }, [isPrefersReducedMotion, degrees, hasSpun]);
 
   return (
     <StoreContext.Provider

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import Confetti from 'react-confetti';
 import styled from 'styled-components';
 import { StyledImg, StyledName } from './Slice';
@@ -80,6 +80,8 @@ const CHILDREN_MOTION_CONFIG = {
 };
 
 const WinnerModal = ({ name, src }: Person) => {
+  const isPrefersReducedMotion = useReducedMotion();
+
   return (
     <StyledBackdrop
       animate="visible"
@@ -90,12 +92,20 @@ const WinnerModal = ({ name, src }: Person) => {
     >
       <StyledInner>
         <motion.div
-          initial={CHILDREN_MOTION_CONFIG.initial}
-          animate={{
-            ...CHILDREN_MOTION_CONFIG.animate,
-            transition: { duration: 0.75, delay: 0.5 },
-          }}
-          exit={CHILDREN_MOTION_CONFIG.initial}
+          initial={
+            isPrefersReducedMotion ? undefined : CHILDREN_MOTION_CONFIG.initial
+          }
+          animate={
+            isPrefersReducedMotion
+              ? undefined
+              : {
+                  ...CHILDREN_MOTION_CONFIG.animate,
+                  transition: { duration: 0.75, delay: 0.5 },
+                }
+          }
+          exit={
+            isPrefersReducedMotion ? undefined : CHILDREN_MOTION_CONFIG.initial
+          }
           key="winner-modal-h1"
         >
           <StyledH1 aria-hidden>Winner, winner, chicken dinner</StyledH1>
@@ -103,35 +113,61 @@ const WinnerModal = ({ name, src }: Person) => {
         <div>
           <motion.div
             key="winner-modal-img"
-            initial={CHILDREN_MOTION_CONFIG.initial}
-            animate={{
-              ...CHILDREN_MOTION_CONFIG.animate,
-              transition: { duration: 0.75, delay: 1.25 },
-            }}
-            exit={CHILDREN_MOTION_CONFIG.initial}
+            initial={
+              isPrefersReducedMotion
+                ? undefined
+                : CHILDREN_MOTION_CONFIG.initial
+            }
+            animate={
+              isPrefersReducedMotion
+                ? undefined
+                : {
+                    ...CHILDREN_MOTION_CONFIG.animate,
+                    transition: { duration: 0.75, delay: 1.25 },
+                  }
+            }
+            exit={
+              isPrefersReducedMotion
+                ? undefined
+                : CHILDREN_MOTION_CONFIG.initial
+            }
           >
             <RestyledWinningImg aria-hidden $src={src} />
           </motion.div>
           <motion.div
             key="winner-modal-name"
-            initial={CHILDREN_MOTION_CONFIG.initial}
-            animate={{
-              ...CHILDREN_MOTION_CONFIG.animate,
-              transition: { duration: 0.75, delay: 1.625 },
-            }}
-            exit={CHILDREN_MOTION_CONFIG.initial}
+            initial={
+              isPrefersReducedMotion
+                ? undefined
+                : CHILDREN_MOTION_CONFIG.initial
+            }
+            animate={
+              isPrefersReducedMotion
+                ? undefined
+                : {
+                    ...CHILDREN_MOTION_CONFIG.animate,
+                    transition: { duration: 0.75, delay: 1.625 },
+                  }
+            }
+            exit={
+              isPrefersReducedMotion
+                ? undefined
+                : CHILDREN_MOTION_CONFIG.initial
+            }
           >
             <RestyledWinningName aria-hidden>{name}</RestyledWinningName>
           </motion.div>
         </div>
         <RestyledWinningButton text="Reset" />
       </StyledInner>
-      <Confetti
-        gravity={0.025}
-        height={window.innerHeight}
-        numberOfPieces={100}
-        width={window.innerWidth}
-      />
+      {!isPrefersReducedMotion && (
+        <Confetti
+          gravity={0.025}
+          height={window.innerHeight}
+          numberOfPieces={100}
+          width={window.innerWidth}
+        />
+      )}
     </StyledBackdrop>
   );
 };

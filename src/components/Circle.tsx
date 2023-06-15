@@ -1,3 +1,4 @@
+import { useReducedMotion } from 'framer-motion';
 import { useContext } from 'react';
 import styled, { css } from 'styled-components';
 import { SPIN_DURATION, STUB } from '../constants';
@@ -15,7 +16,12 @@ const StyledWrapper = styled.section`
   max-width: 90vmin;
 `;
 
-const StyledCircle = styled.div<{ $degrees: RandomOrNull }>`
+interface StyledCircleProps {
+  $degrees: RandomOrNull;
+  $isPrefersReducedMotion?: $IsPrefersReducedMotion;
+}
+
+const StyledCircle = styled.div<StyledCircleProps>`
   aspect-ratio: 1;
   background-color: ${(props) => props.theme.circleBgColor};
   border-radius: 50%;
@@ -27,11 +33,12 @@ const StyledCircle = styled.div<{ $degrees: RandomOrNull }>`
   width: 100%;
   will-change: rotate;
 
-  ${({ $degrees }) =>
+  ${({ $degrees, $isPrefersReducedMotion }) =>
     $degrees
       ? css`
           rotate: ${$degrees}deg;
-          transition: ${SPIN_DURATION}ms rotate cubic-bezier(0.33, 0, 0, 1);
+          transition: ${$isPrefersReducedMotion ? 0 : SPIN_DURATION}ms rotate
+            cubic-bezier(0.33, 0, 0, 1);
         `
       : css`
           rotate: 0deg;
@@ -41,10 +48,14 @@ const StyledCircle = styled.div<{ $degrees: RandomOrNull }>`
 
 const Circle = () => {
   const { degrees, floors, random } = useContext(StoreContext);
+  const isPrefersReducedMotion = useReducedMotion();
 
   return (
     <StyledWrapper>
-      <StyledCircle $degrees={degrees}>
+      <StyledCircle
+        $isPrefersReducedMotion={isPrefersReducedMotion}
+        $degrees={degrees}
+      >
         {STUB.map(({ name, src }, index) => (
           <Slice
             floorsCount={floors.length}

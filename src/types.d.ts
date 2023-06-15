@@ -16,6 +16,7 @@ type Persons = Person[];
 type Random = number;
 type RandomOrNull = Random | null;
 type Src = string;
+type $IsPrefersReducedMotion = boolean | null;
 
 interface SliceProps {
   floorsCount: number;
