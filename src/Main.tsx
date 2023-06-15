@@ -7,7 +7,8 @@ import { theme } from './styles/theme';
 
 // eslint-disable-next-line react-refresh/only-export-components
 const StyledMain = styled.main`
-  background-color: ${(props) => props.theme.mainBgColor};
+  background-image: ${(props) =>
+    `radial-gradient(${props.theme.mainBgColorInner}, ${props.theme.mainBgColorOuter})`};
   height: 100%;
   max-height: 100vh;
   overflow: hidden;

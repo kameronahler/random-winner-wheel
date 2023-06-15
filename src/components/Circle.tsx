@@ -23,7 +23,8 @@ interface StyledCircleProps {
 
 const StyledCircle = styled.div<StyledCircleProps>`
   aspect-ratio: 1;
-  background-color: ${(props) => props.theme.circleBgColor};
+  background-image: ${(props) =>
+    `radial-gradient(${props.theme.circleBgColorOuter}, ${props.theme.circleBgColorInner})`};
   border-radius: 50%;
   box-shadow: inset ${(props) => props.theme.boxShadow};
   margin: auto;

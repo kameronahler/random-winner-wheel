@@ -9,6 +9,7 @@ const StyledButton = styled.button`
   border-radius: 50%;
   border: ${(props) => `${props.theme.circleBorderWidth} solid
     ${props.theme.spinButtonBorderColor}`};
+  color: ${(props) => props.theme.spinButtonTextColor};
   cursor: pointer;
   display: block;
   font-size: clamp(1rem, 3vmin, 3rem);

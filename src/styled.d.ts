@@ -4,17 +4,19 @@ declare module 'styled-components' {
   export type DefaultTheme = Recrod<
     | 'buttonBgColor'
     | 'boxShadow'
-    | 'circleBgColor'
+    | 'circleBgColorInner'
+    | 'circleBgColorOuter'
     | 'circleBorderColor'
     | 'circleBorderWidth'
-    | 'mainBgColor'
+    | 'circleTextColor'
+    | 'mainBgColorInner'
+    | 'mainBgColorOuter'
     | 'outerCircleWidth'
     | 'outerPegColor'
-    | 'sliceBgColorEven'
-    | 'sliceBgColorOdd'
     | 'spinButtonBorderWidth'
     | 'spinButtonBorderColor'
-    | 'textColor',
+    | 'spinButtonTextColor'
+    | 'winnerModalTextColor',
     string
   >;
 }
