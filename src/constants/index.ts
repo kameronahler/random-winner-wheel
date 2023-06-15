@@ -32,7 +32,7 @@ export const STUB = [
   },
 ];
 
-export const DELAY_WINNER_MODAL = 500;
+export const DELAY_WINNER_MODAL = 250;
 
 export const SPIN_DURATION = 10000;
 
