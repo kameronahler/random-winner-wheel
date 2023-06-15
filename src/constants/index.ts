@@ -27,7 +27,7 @@ export const STUB = [
 
 export const DELAY_WINNER_MODAL = 500;
 
-export const SPIN_DURATION = 10000;
+export const SPIN_DURATION = 1000;
 
 export const MANDATORY_SPINS = 10;
 

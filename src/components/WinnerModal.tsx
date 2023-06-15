@@ -1,4 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
 import Confetti from 'react-confetti';
 import styled from 'styled-components';
 import { StyledImg, StyledName } from './Slice';
@@ -81,6 +82,11 @@ const CHILDREN_MOTION_CONFIG = {
 
 const WinnerModal = ({ name, src }: Person) => {
   const isPrefersReducedMotion = useReducedMotion();
+  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+
+  const handleAnimationStart = () => setIsAnimationComplete(false);
+
+  const handleAnimationComplete = () => setIsAnimationComplete(true);
 
   return (
     <StyledBackdrop
@@ -154,11 +160,13 @@ const WinnerModal = ({ name, src }: Person) => {
                 ? undefined
                 : CHILDREN_MOTION_CONFIG.initial
             }
+            onAnimationStart={handleAnimationStart}
+            onAnimationComplete={handleAnimationComplete}
           >
             <RestyledWinningName aria-hidden>{name}</RestyledWinningName>
           </motion.div>
         </div>
-        <RestyledWinningButton text="Reset" />
+        <RestyledWinningButton disabled={!isAnimationComplete} text="Reset" />
       </StyledInner>
       {!isPrefersReducedMotion && (
         <Confetti

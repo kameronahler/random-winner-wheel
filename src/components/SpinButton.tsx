@@ -42,6 +42,7 @@ const SpinButton = ({ text, ...rest }: SpinButtonProps) => {
     <StyledButton
       className={rest.className}
       onClick={random ? handleReset : handleSpin}
+      disabled={rest.disabled}
     >
       {text}
     </StyledButton>
