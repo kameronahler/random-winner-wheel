@@ -24,8 +24,6 @@ const GrossContextProvider = ({ children }: GrossContextProvider) => {
   const [isDone, setIsDone] = useState<IsDone>(false);
   const [isStarted, setIsStarted] = useState<IsStarted>(false);
 
-  console.log({ random, index, degrees, isDone, isStarted });
-
   useEffect(() => {
     setIndex(random !== null ? getWinningIndex(floors, random) : null);
     setDegrees(index !== null ? getWinningDegrees(floors.length, index) : null);

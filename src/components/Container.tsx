@@ -13,7 +13,7 @@ const INITIAL_DATA = {
 
 const Container = () => {
   const { index, isDone } = useContext(GrossContext);
-  const { name, src } = index ? STUB[index] : INITIAL_DATA;
+  const { name, src } = index !== null ? STUB[index] : INITIAL_DATA;
 
   return (
     <>
