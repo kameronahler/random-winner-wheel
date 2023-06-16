@@ -130,7 +130,7 @@ const WinnerModal = ({ name, src }: Person) => {
                 ? undefined
                 : {
                     ...CHILDREN_MOTION_CONFIG.animate,
-                    transition: { duration: 0.75, delay: 1.25 },
+                    transition: { duration: 0.75, delay: 1 },
                   }
             }
             exit={
@@ -153,7 +153,7 @@ const WinnerModal = ({ name, src }: Person) => {
                 ? undefined
                 : {
                     ...CHILDREN_MOTION_CONFIG.animate,
-                    transition: { duration: 0.75, delay: 1.625 },
+                    transition: { duration: 0.75, delay: 1.5 },
                   }
             }
             exit={
@@ -161,13 +161,34 @@ const WinnerModal = ({ name, src }: Person) => {
                 ? undefined
                 : CHILDREN_MOTION_CONFIG.initial
             }
-            onAnimationStart={handleAnimationStart}
-            onAnimationComplete={handleAnimationComplete}
           >
             <RestyledWinningName aria-hidden>{name}</RestyledWinningName>
           </motion.div>
         </div>
-        <RestyledWinningButton disabled={!isAnimationComplete} text="Reset" />
+        <motion.div
+          key="winner-modal-button"
+          initial={
+            isPrefersReducedMotion ? undefined : CHILDREN_MOTION_CONFIG.initial
+          }
+          animate={
+            isPrefersReducedMotion
+              ? undefined
+              : {
+                  ...CHILDREN_MOTION_CONFIG.animate,
+                  transition: { duration: 0.75, delay: 2 },
+                }
+          }
+          exit={
+            isPrefersReducedMotion ? undefined : CHILDREN_MOTION_CONFIG.initial
+          }
+          onAnimationStart={handleAnimationStart}
+          onAnimationComplete={handleAnimationComplete}
+        >
+          <RestyledWinningButton
+            disabled={!isPrefersReducedMotion && !isAnimationComplete}
+            text="Reset"
+          />
+        </motion.div>
       </StyledInner>
       {!isPrefersReducedMotion && (
         <Confetti

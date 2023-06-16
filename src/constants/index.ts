@@ -1,9 +1,9 @@
-import jerry from '../../public/j.jpeg';
-import kristina from '../../public/k.jpeg';
-import miles from '../../public/m.jpeg';
-import nikki from '../../public/n.jpeg';
-import sidd from '../../public/s.jpeg';
-import tj from '../../public/t.jpeg';
+import jerry from '../assets/j.jpeg';
+import kristina from '../assets/k.jpeg';
+import miles from '../assets/m.jpeg';
+import nikki from '../assets/n.jpeg';
+import sidd from '../assets/s.jpeg';
+import tj from '../assets/t.jpeg';
 
 export const STUB = [
   {

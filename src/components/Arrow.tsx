@@ -1,19 +1,9 @@
-import { useContext, useEffect, useState } from 'react';
-import styled, { keyframes } from 'styled-components';
-import { MANDATORY_SPINS, SPIN_DURATION } from '../constants';
+import { motion } from 'framer-motion';
+import { useContext } from 'react';
+import styled from 'styled-components';
 import { StoreContext } from '../contexts/Store';
 
-const BobAnimation = keyframes`
-    100% {
-      translate: 0 50%;
-    }
-  `;
-
-interface StyledArrowProps {
-  $isAnimating: boolean;
-}
-
-const StyledArrow = styled.div<StyledArrowProps>`
+const StyledArrow = styled(motion.div)`
   border-left: 2vmin solid transparent;
   border-right: 2vmin solid transparent;
   border-top: 4vmin solid ${(props) => props.theme.arrowBgColor};
@@ -21,21 +11,26 @@ const StyledArrow = styled.div<StyledArrowProps>`
   margin-bottom: 2rem;
   margin-inline: auto;
   width: 0;
-  animation: ${BobAnimation} ${SPIN_DURATION / 40}ms linear forwards alternate;
-  animation-iteration-count: ${MANDATORY_SPINS * 4 + 1};
-  animation-play-state: ${({ $isAnimating }) =>
-    $isAnimating ? 'running' : 'paused'};
 `;
 
 const Arrow = () => {
-  const [isAnimating, setIsAnimating] = useState(false);
   const { random } = useContext(StoreContext);
 
-  useEffect(() => {
-    setIsAnimating(!!random);
-  }, [random]);
-
-  return <StyledArrow key={random} $isAnimating={isAnimating} />;
+  return (
+    <StyledArrow
+      key="Arrow"
+      initial={{ opacity: 0, y: 0 }}
+      animate={
+        random !== null
+          ? {
+              opacity: 1,
+              y: '50%',
+              transition: { duration: 2 },
+            }
+          : {}
+      }
+    />
+  );
 };
 
 export default Arrow;

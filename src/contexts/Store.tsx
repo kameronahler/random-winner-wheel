@@ -24,17 +24,10 @@ const StoreProvider = ({ children }: StoreProvider) => {
   const isPrefersReducedMotion = useReducedMotion();
 
   useEffect(() => {
-    setHasSpun(random ? true : false);
+    setHasSpun(random !== null ? true : false);
     setIndex(random !== null ? getWinningIndex(floors, random) : null);
-  }, [floors, random]);
-
-  useEffect(
-    () =>
-      setDegrees(
-        index !== null ? getWinningDegrees(floors.length, index) : null
-      ),
-    [floors, index]
-  );
+    setDegrees(index !== null ? getWinningDegrees(floors.length, index) : null);
+  }, [floors, random, index]);
 
   useEffect(() => {
     const timeout = setTimeout(

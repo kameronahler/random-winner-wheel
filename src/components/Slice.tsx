@@ -85,6 +85,7 @@ export const StyledImg = styled.div<{ $src: Src }>`
   display: grid;
   margin-top: ${(props) => props.theme.outerCircleWidth};
   width: 10vmin;
+  transform: translate3d(0);
 `;
 
 export const StyledName = styled.p`
