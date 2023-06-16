@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import { useContext } from 'react';
 import { STUB } from '../constants';
-import { StoreContext } from '../contexts/Store';
+import { GrossContext } from '../contexts/Context';
 import Arrow from './Arrow';
 import Circle from './Circle';
 import WinnerModal from './WinnerModal';
@@ -12,20 +12,22 @@ const INITIAL_DATA = {
 };
 
 const Container = () => {
-  const { index, isDoneSpinning } = useContext(StoreContext);
+  const { index, isDone } = useContext(GrossContext);
   const { name, src } = index ? STUB[index] : INITIAL_DATA;
 
   return (
-    <AnimatePresence>
-      {index && isDoneSpinning ? (
-        <WinnerModal key="winner-modal" name={name} src={src} />
+    <>
+      {isDone ? (
+        <AnimatePresence>
+          <WinnerModal key="winner-modal" name={name} src={src} />
+        </AnimatePresence>
       ) : (
         <>
           <Arrow />
           <Circle />
         </>
       )}
-    </AnimatePresence>
+    </>
   );
 };
 

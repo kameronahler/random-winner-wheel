@@ -2,7 +2,7 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
 import { SPIN_DURATION, STUB } from '../constants';
-import { StoreContext } from '../contexts/Store';
+import { GrossContext } from '../contexts/Context';
 import Slice from './Slice';
 import SpinButton from './SpinButton';
 
@@ -28,8 +28,12 @@ const StyledCircle = styled(motion.div)`
 `;
 
 const Circle = () => {
-  const { degrees, floors, random } = useContext(StoreContext);
+  const { degrees, floors, isStarted, setIsDone } = useContext(GrossContext);
   const isPrefersReducedMotion = useReducedMotion();
+
+  const handleOnAnimationComplete = () => {
+    if (isStarted) setIsDone(true);
+  };
 
   return (
     <StyledWrapper>
@@ -45,6 +49,7 @@ const Circle = () => {
               }
             : {}
         }
+        onAnimationComplete={handleOnAnimationComplete}
       >
         {STUB.map(({ name, src }, index) => (
           <Slice
@@ -56,7 +61,7 @@ const Circle = () => {
           />
         ))}
       </StyledCircle>
-      <SpinButton text={random ? 'Stop' : 'Spin'} />
+      <SpinButton text={isStarted ? 'Stop' : 'Spin'} />
     </StyledWrapper>
   );
 };

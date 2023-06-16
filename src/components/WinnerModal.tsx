@@ -31,7 +31,7 @@ const StyledH1 = styled.h1`
 
 const RestyledWinningImg = styled(StyledImg)`
   position: static;
-  margin: 0 0 1.5rem;
+  margin: 0 auto 1.5rem;
   width: 8rem;
 `;
 
@@ -48,7 +48,7 @@ const RestyledWinningName = styled(StyledName)`
   writing-mode: unset;
 `;
 
-const RestyledWinningButton = styled(SpinButton)`
+const RestyledSpinButton = styled(SpinButton)`
   left: unset;
   position: static;
   top: unset;
@@ -83,11 +83,9 @@ const CHILDREN_MOTION_CONFIG = {
 
 const WinnerModal = ({ name, src }: Person) => {
   const isPrefersReducedMotion = useReducedMotion();
-  const [isAnimationComplete, setIsAnimationComplete] = useState(false);
+  const [isModalAnimationDone, setIsModalAnimationDone] = useState(false);
 
-  const handleAnimationStart = () => setIsAnimationComplete(false);
-
-  const handleAnimationComplete = () => setIsAnimationComplete(true);
+  const handleAnimationComplete = () => setIsModalAnimationDone(true);
 
   return (
     <StyledBackdrop
@@ -181,11 +179,10 @@ const WinnerModal = ({ name, src }: Person) => {
           exit={
             isPrefersReducedMotion ? undefined : CHILDREN_MOTION_CONFIG.initial
           }
-          onAnimationStart={handleAnimationStart}
           onAnimationComplete={handleAnimationComplete}
         >
-          <RestyledWinningButton
-            disabled={!isPrefersReducedMotion && !isAnimationComplete}
+          <RestyledSpinButton
+            disabled={!isPrefersReducedMotion && !isModalAnimationDone}
             text="Reset"
           />
         </motion.div>

@@ -1,8 +1,13 @@
+import { useReducedMotion } from 'framer-motion';
 import { useContext } from 'react';
-import styled from 'styled-components';
-import { StoreContext } from '../contexts/Store';
+import styled, { css } from 'styled-components';
+import { GrossContext } from '../contexts/Context';
 
-const StyledButton = styled.button`
+interface StyledButtonProps {
+  $isPrefersReducedMotion: $IsPrefersReducedMotion;
+}
+
+const StyledButton = styled.button<StyledButtonProps>`
   aspect-ratio: 1;
   background-color: ${(props) => props.theme.spinButtonBgColor};
   box-shadow: ${(props) => props.theme.boxShadow};
@@ -22,28 +27,47 @@ const StyledButton = styled.button`
   top: 50%;
   translate: -50% -50%;
 
-  &:active {
-    scale: 0.9;
-    transition: scale 0.2s ease;
-  }
+  ${({ $isPrefersReducedMotion }) =>
+    !$isPrefersReducedMotion &&
+    css`
+      &:active {
+        scale: 0.9;
+        transition: scale 0.2s ease;
+      }
+    `}
 `;
 
 const SpinButton = ({ text, ...rest }: SpinButtonProps) => {
-  const { random, setRandom } = useContext(StoreContext);
+  const {
+    isStarted,
+    setIsDone,
+    setDegrees,
+    setIndex,
+    setIsStarted,
+    setRandom,
+  } = useContext(GrossContext);
+
+  const isPrefersReducedMotion = useReducedMotion();
 
   const handleSpin = () => {
     setRandom(Math.random());
+    setIsStarted(true);
   };
 
   const handleReset = () => {
+    setDegrees(null);
+    setIndex(null);
+    setIsDone(false);
+    setIsStarted(false);
     setRandom(null);
   };
 
   return (
     <StyledButton
       className={rest.className}
-      onClick={random ? handleReset : handleSpin}
+      onClick={isStarted ? handleReset : handleSpin}
       disabled={rest.disabled}
+      $isPrefersReducedMotion={isPrefersReducedMotion}
     >
       {text}
     </StyledButton>

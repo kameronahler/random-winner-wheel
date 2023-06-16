@@ -6,7 +6,8 @@ type HandleSpin = React.MouseEventHandler<HTMLButtonElement>;
 type HasSpun = boolean;
 type Index = number;
 type IndexOrNull = Index | null;
-type IsDoneSpinning = boolean;
+type IsDone = boolean;
+type IsStarted = boolean;
 type Name = string;
 type Person = {
   name: Name;
@@ -16,6 +17,7 @@ type Persons = Person[];
 type Random = number;
 type RandomOrNull = Random | null;
 type Src = string;
+type $IsPrefersReducedMotion = boolean | null;
 
 interface SliceProps {
   floorsCount: number;
@@ -24,22 +26,25 @@ interface SliceProps {
   src: Src;
 }
 
-interface Store {
+interface GrossContextData {
   degrees: DegreesOrNull;
   floors: Floors;
   index: IndexOrNull;
-  hasSpun: HasSpun;
-  isDoneSpinning: IsDoneSpinning;
+  isDone: IsDone;
+  isStarted: IsStarted;
   random: RandomOrNull;
-  setRandom: React.Dispatch<RandomOrNull>;
+  setDegrees: React.Dispatch<DegreesOrNull>;
   setIndex: React.Dispatch<IndexOrNull>;
+  setIsDone: React.Dispatch<IsDone>;
+  setIsStarted: React.Dispatch<IsStarted>;
+  setRandom: React.Dispatch<RandomOrNull>;
 }
 
 interface ContainerProps {
   children: React.ReactNode;
 }
 
-interface StoreProvider {
+interface GrossContextProvider {
   children: React.ReactNode;
 }
 

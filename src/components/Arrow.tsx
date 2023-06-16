@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { StoreContext } from '../contexts/Store';
+import { GrossContext } from '../contexts/Context';
 
 const StyledArrow = styled(motion.div)`
   border-left: 2vmin solid transparent;
@@ -14,14 +14,14 @@ const StyledArrow = styled(motion.div)`
 `;
 
 const Arrow = () => {
-  const { random } = useContext(StoreContext);
+  const { isStarted } = useContext(GrossContext);
 
   return (
     <StyledArrow
       key="Arrow"
       initial={{ opacity: 0, y: 0 }}
       animate={
-        random !== null
+        isStarted
           ? {
               opacity: 1,
               y: '50%',

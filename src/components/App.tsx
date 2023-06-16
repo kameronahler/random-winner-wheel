@@ -1,11 +1,11 @@
-import StoreProvider from '../contexts/Store';
+import GrossContextProvider from '../contexts/Context';
 import Container from './Container';
 
 const App = () => {
   return (
-    <StoreProvider>
+    <GrossContextProvider>
       <Container />
-    </StoreProvider>
+    </GrossContextProvider>
   );
 };
 
