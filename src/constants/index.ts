@@ -34,8 +34,8 @@ export const STUB = [
 
 export const DELAY_WINNER_MODAL = 250;
 
-export const SPIN_DURATION = 10000;
+export const SPIN_DURATION = 6000;
 
-export const MANDATORY_SPINS = 10;
+export const MANDATORY_SPINS = 8;
 
 export const MANDATORY_SPINNING_DEGREES = MANDATORY_SPINS * 360;
