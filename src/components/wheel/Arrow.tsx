@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { GrossContext } from '../contexts/Context';
+import { GrossContext } from '../../contexts/Context';
 
 const StyledArrow = styled(motion.div)`
   border-left: 2vmin solid transparent;

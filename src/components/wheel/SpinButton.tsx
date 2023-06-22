@@ -1,7 +1,7 @@
 import { useReducedMotion } from 'framer-motion';
 import { useContext } from 'react';
 import styled, { css } from 'styled-components';
-import { GrossContext } from '../contexts/Context';
+import { GrossContext } from '../../contexts/Context';
 
 interface StyledButtonProps {
   $isPrefersReducedMotion: $IsPrefersReducedMotion;

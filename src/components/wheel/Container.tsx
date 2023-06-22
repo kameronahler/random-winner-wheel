@@ -1,10 +1,10 @@
 import { AnimatePresence } from 'framer-motion';
 import { useContext } from 'react';
-import { STUB } from '../constants';
-import { GrossContext } from '../contexts/Context';
+import { STUB } from '../../constants';
+import { GrossContext } from '../../contexts/Context';
+import WinnerModal from '../winnerModal/WinnerModal';
 import Arrow from './Arrow';
 import Circle from './Circle';
-import WinnerModal from './WinnerModal';
 
 const INITIAL_DATA = {
   name: '',

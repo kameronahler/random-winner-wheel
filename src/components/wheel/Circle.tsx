@@ -1,8 +1,8 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useContext } from 'react';
 import styled from 'styled-components';
-import { SPIN_DURATION, STUB } from '../constants';
-import { GrossContext } from '../contexts/Context';
+import { SPIN_DURATION, STUB } from '../../constants';
+import { GrossContext } from '../../contexts/Context';
 import Slice from './Slice';
 import SpinButton from './SpinButton';
 

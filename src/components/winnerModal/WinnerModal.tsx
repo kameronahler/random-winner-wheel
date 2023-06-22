@@ -2,8 +2,8 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import Confetti from 'react-confetti';
 import styled from 'styled-components';
-import { StyledImg, StyledName } from './Slice';
-import SpinButton from './SpinButton';
+import { StyledImg, StyledName } from '../wheel/Slice';
+import SpinButton from '../wheel/SpinButton';
 
 const StyledBackdrop = styled(motion.section)`
   background-color: rgba(0, 0, 0, 0.5);
