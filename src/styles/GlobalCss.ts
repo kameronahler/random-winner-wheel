@@ -20,10 +20,6 @@ const GlobalCss = createGlobalStyle`
         margin: unset;
     }
 
-    h1 {
-        font-family: inherit;
-    }
-
     #root {
         height: 100vh;
         margin: unset;

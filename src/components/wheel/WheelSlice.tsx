@@ -100,7 +100,7 @@ export const StyledName = styled.p`
   writing-mode: vertical-lr;
 `;
 
-const Slice = ({ floorsCount, index, name, src }: SliceProps) => {
+const WheelSlice = ({ floorsCount, index, name, src }: WheelSliceProps) => {
   return (
     <StyledWrapper
       $borderRotation={((360 / floorsCount) * index) / 2}
@@ -115,4 +115,4 @@ const Slice = ({ floorsCount, index, name, src }: SliceProps) => {
   );
 };
 
-export default Slice;
+export default WheelSlice;

@@ -1,27 +1,22 @@
 import { useReducedMotion } from 'framer-motion';
 import { useContext } from 'react';
+
 import styled, { css } from 'styled-components';
-import { GrossContext } from '../../contexts/Context';
+import { WheelContext } from '../../contexts/WheelProvider';
+import Button from '../button/Button';
 
 interface StyledButtonProps {
   $isPrefersReducedMotion: $IsPrefersReducedMotion;
 }
 
-const StyledButton = styled.button<StyledButtonProps>`
+const StyledButton = styled(Button)<StyledButtonProps>`
   aspect-ratio: 1;
-  background-color: ${(props) => props.theme.spinButtonBgColor};
-  box-shadow: ${(props) => props.theme.boxShadow};
   border-radius: 50%;
-  border: ${(props) => `${props.theme.circleBorderWidth} solid
-    ${props.theme.spinButtonBorderColor}`};
-  color: ${(props) => props.theme.spinButtonTextColor};
-  cursor: pointer;
-  display: block;
+  box-shadow: ${(props) => props.theme.boxShadowLarge};
   font-size: clamp(1rem, 3vmin, 3rem);
-  font-weight: 700;
+  height: unset;
   left: 50%;
-  letter-spacing: 1px;
-  padding: 1rem;
+  padding: 3vmin;
   position: absolute;
   text-transform: uppercase;
   top: 50%;
@@ -45,7 +40,7 @@ const SpinButton = ({ text, ...rest }: SpinButtonProps) => {
     setIndex,
     setIsStarted,
     setRandom,
-  } = useContext(GrossContext);
+  } = useContext(WheelContext);
 
   const isPrefersReducedMotion = useReducedMotion();
 

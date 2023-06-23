@@ -2,11 +2,11 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import Confetti from 'react-confetti';
 import styled from 'styled-components';
-import { StyledImg, StyledName } from '../wheel/Slice';
-import SpinButton from '../wheel/SpinButton';
+import SpinButton from '../spinButton/SpinButton';
+import { StyledImg, StyledName } from '../wheel/WheelSlice';
 
 const StyledBackdrop = styled(motion.section)`
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: ${(props) => props.theme.surfaceDarker};
   display: grid;
   height: 100%;
   place-content: center;
@@ -23,7 +23,7 @@ const StyledInner = styled.div`
 `;
 
 const StyledH1 = styled.h1`
-  color: ${(props) => props.theme.winnerModalH1TextColor};
+  color: ${(props) => props.theme.textLight};
   font-size: clamp(3rem, 5vmin, 4rem);
   margin: unset;
   text-align: center;
@@ -36,7 +36,7 @@ const RestyledWinningImg = styled(StyledImg)`
 `;
 
 const RestyledWinningName = styled(StyledName)`
-  color: ${(props) => props.theme.winnerModalTextColor};
+  color: ${(props) => props.theme.textLight};
   font-size: clamp(2rem, 4vmin, 3rem);
   max-height: unset;
   overflow: unset;

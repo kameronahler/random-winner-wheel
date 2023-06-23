@@ -1,8 +1,8 @@
+import { useFormikContext } from 'formik';
 import React, { useEffect, useMemo, useState } from 'react';
-import { STUB } from '../constants';
 import { generateFloors, getWinningDegrees, getWinningIndex } from '../helpers';
 
-export const GrossContext = React.createContext<GrossContextData>({
+export const WheelContext = React.createContext<WheelContextData>({
   degrees: null,
   floors: [],
   isDone: false,
@@ -16,8 +16,11 @@ export const GrossContext = React.createContext<GrossContextData>({
   setRandom: () => null,
 });
 
-const GrossContextProvider = ({ children }: GrossContextProvider) => {
-  const floors = useMemo(() => generateFloors(STUB), []);
+const WheelProvider = ({ children }: WheelContextProvider) => {
+  const {
+    values: { persons },
+  } = useFormikContext<PersonsFormikValues>();
+  const floors = useMemo(() => generateFloors(persons), [persons]);
   const [random, setRandom] = useState<RandomOrNull>(null);
   const [index, setIndex] = useState<IndexOrNull>(null);
   const [degrees, setDegrees] = useState<RandomOrNull>(null);
@@ -30,7 +33,7 @@ const GrossContextProvider = ({ children }: GrossContextProvider) => {
   }, [floors, random, index]);
 
   return (
-    <GrossContext.Provider
+    <WheelContext.Provider
       value={{
         degrees,
         floors,
@@ -46,8 +49,8 @@ const GrossContextProvider = ({ children }: GrossContextProvider) => {
       }}
     >
       {children}
-    </GrossContext.Provider>
+    </WheelContext.Provider>
   );
 };
 
-export default GrossContextProvider;
+export default WheelProvider;

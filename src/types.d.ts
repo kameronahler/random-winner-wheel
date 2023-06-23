@@ -1,5 +1,6 @@
 type Degrees = number;
 type DegreesOrNull = Degrees | null;
+type FirstInputRef = React.MutableRefObject<HTMLInputElement | null>;
 type Floor = number;
 type Floors = Floor[];
 type HandleSpin = React.MouseEventHandler<HTMLButtonElement>;
@@ -8,6 +9,7 @@ type Index = number;
 type IndexOrNull = Index | null;
 type IsDone = boolean;
 type IsStarted = boolean;
+type IsEditMode = boolean;
 type Name = string;
 type Person = {
   name: Name;
@@ -16,17 +18,59 @@ type Person = {
 type Persons = Person[];
 type Random = number;
 type RandomOrNull = Random | null;
+type SetIsEditMode = React.Dispatch<React.SetStateAction<IsEditMode>>;
 type Src = string;
 type $IsPrefersReducedMotion = boolean | null;
 
-interface SliceProps {
+interface FormikFieldProps {
+  label: string;
+  name: Name;
+  type: HTMLInputElement['type'];
+}
+
+interface FormikButtonsProps {
+  firstInputRef: FirstInputRef;
+  setIsEditMode?: Partial<SetIsEditMode, 'setIsEditMode'>;
+}
+
+interface PersonsFormikValues {
+  newName: Name;
+  newSrc: Src;
+  persons: Persons;
+}
+
+interface PersonsFormikProviderProps {
+  children: React.ReactNode;
+}
+
+interface PersonsListProps {
+  setIsEditMode?: Partial<SetIsEditMode, 'setIsEditMode'>;
+}
+
+interface PersonsFormInnerProps {
+  firstInputRef: FirstInputRef;
+  setIsEditMode: SetIsEditMode;
+}
+
+interface PersonsFormFieldsProps {
+  firstInputRef: FirstInputRef;
+  setIsEditMode: SetIsEditMode;
+}
+
+interface PersonsListItemProps {
+  handleRemove?: () => void;
+  handleAdd?: () => void;
+  person?: Person;
+}
+
+interface WheelSliceProps {
   floorsCount: number;
   index: Index;
   name: Name;
   src: Src;
 }
 
-interface GrossContextData {
+interface WheelContextData {
   degrees: DegreesOrNull;
   floors: Floors;
   index: IndexOrNull;
@@ -40,11 +84,11 @@ interface GrossContextData {
   setRandom: React.Dispatch<RandomOrNull>;
 }
 
-interface ContainerProps {
+interface WheelContainerProps {
   children: React.ReactNode;
 }
 
-interface GrossContextProvider {
+interface WheelContextProvider {
   children: React.ReactNode;
 }
 
